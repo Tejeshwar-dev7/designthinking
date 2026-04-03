@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-on-primary-fixed-variant: #0040a2;
+  --color-on-tertiary: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-tertiary-fixed-variant: #812800;
+  --color-surface-container-low: #f1f3ff;
+  --color-surface-container-highest: #d8e2ff;
+  --color-error: #ba1a1a;
+  --color-on-primary: #ffffff;
+  --color-surface-dim: #ccdaff;
+  --color-secondary-container: #cdddff;
+  --color-tertiary-container: #a33500;
+  --color-surface-variant: #d8e2ff;
+  --color-secondary-fixed-dim: #b7c7e8;
+  --color-on-primary-container: #c4d2ff;
+  --color-surface-container: #e9edff;
+  --color-inverse-surface: #1d3054;
+  --color-primary-fixed: #dae2ff;
+  --color-on-primary-fixed: #001848;
+  --color-outline: #737685;
+  --color-on-tertiary-container: #ffc6b2;
+  --color-outline-variant: #c3c6d6;
+  --color-primary-container: #0052cc;
+  --color-on-error: #ffffff;
+  --color-surface: #faf9ff;
+  --color-surface-container-high: #e1e8ff;
+  --color-error-container: #ffdad6;
+  --color-inverse-primary: #b2c5ff;
+  --color-on-tertiary-fixed: #380d00;
+  --color-on-surface-variant: #434654;
+  --color-inverse-on-surface: #edf0ff;
+  --color-secondary-fixed: #d6e3ff;
+  --color-on-secondary-fixed: #091c35;
+  --color-secondary: #4f5f7b;
+  --color-tertiary-fixed: #ffdbcf;
+  --color-background: #faf9ff;
+  --color-on-secondary-container: #51617e;
+  --color-tertiary: #7b2600;
+  --color-on-background: #051a3e;
+  --color-on-secondary-fixed-variant: #374763;
+  --color-primary: #003d9b;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #051a3e;
+  --color-primary-fixed-dim: #b2c5ff;
+  --color-surface-bright: #faf9ff;
+  --color-tertiary-fixed-dim: #ffb59b;
+  --color-on-secondary: #ffffff;
+  --color-surface-tint: #0c56d0;
+
+  --font-headline: var(--font-manrope), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-label: var(--font-inter), sans-serif;
+}
+
+:root {
+  --background: var(--color-background);
+  --foreground: var(--color-on-background);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+/* Material Symbols Adjustments */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom UI Components */
+.glass-panel {
+  background: rgba(216, 226, 255, 0.6);
+  backdrop-filter: blur(12px);
+}
