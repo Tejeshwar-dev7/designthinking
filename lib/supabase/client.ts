@@ -1,9 +1,16 @@
 import { createBrowserClient } from '@supabase/ssr';
 import type { Database } from '@/types/database';
+import { getSupabasePublicEnv } from '@/lib/supabase/env';
 
 export function createClient() {
+  const { url, anonKey } = getSupabasePublicEnv();
+
+  if (!url || !anonKey) {
+    throw new Error('Supabase public environment variables are missing.');
+  }
+
   return createBrowserClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    url,
+    anonKey
   );
 }

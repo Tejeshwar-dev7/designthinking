@@ -32,14 +32,14 @@ export default function Home() {
         </div>
         
         <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-[1.1]">
-          Frictionless Attendance via <br />
+          ESP32-CAM Attendance via <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
              Facial Recognition.
           </span>
         </h1>
         
         <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-12 leading-relaxed">
-          Eliminate manual roll calls and badge swiping. Securely log attendance in milliseconds using edge AI and advanced liveness detection.
+          Eliminate manual roll calls and laptop webcam dependency. Securely log attendance from an ESP32-CAM station that posts recognized faces straight to your live dashboard.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
@@ -61,22 +61,22 @@ export default function Home() {
               <svg className="w-8 h-8 text-indigo-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
               </svg>
-              <h3 className="font-bold text-lg mb-2">Live AI Match</h3>
-              <p className="text-gray-400 text-sm">Validates 128-point facial topology against the database in real-time under any lighting.</p>
+              <h3 className="font-bold text-lg mb-2">ESP32-CAM Match</h3>
+              <p className="text-gray-400 text-sm">Recognized faces are posted from the ESP32-CAM station directly into the attendance session feed.</p>
            </div>
            <div className="p-6 bg-black/60 border border-white/10 rounded-2xl backdrop-blur-md">
               <svg className="w-8 h-8 text-amber-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
               </svg>
               <h3 className="font-bold text-lg mb-2">Instant Sync</h3>
-              <p className="text-gray-400 text-sm">Attendance logs are dispatched instantly to the administrator dashboard.</p>
+              <p className="text-gray-400 text-sm">Each ESP32-CAM match lands in the administrator dashboard within seconds.</p>
            </div>
            <div className="p-6 bg-black/60 border border-white/10 rounded-2xl backdrop-blur-md">
               <svg className="w-8 h-8 text-emerald-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
               </svg>
-              <h3 className="font-bold text-lg mb-2">Anti-Spoofing</h3>
-              <p className="text-gray-400 text-sm">Advanced liveness checks drop static photos or screen replays, ensuring 99.9% accuracy.</p>
+              <h3 className="font-bold text-lg mb-2">Duplicate Guard</h3>
+              <p className="text-gray-400 text-sm">Once a student is marked for a session, repeated matches return already-marked instead of creating duplicates.</p>
            </div>
         </div>
       </main>

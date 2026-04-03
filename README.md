@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) attendance dashboard wired for an **ESP32-CAM attendance station**.
+
+## ESP32-CAM attendance flow
+
+- Enrollment remains in the admin area.
+- Live attendance is no longer taken from the laptop webcam scanner.
+- Your ESP32-CAM posts recognized students to `POST /api/esp32/attendance`.
+- The dashboard listens for those attendance events and updates the session live.
+- Duplicate marks for the same student in the same session return `already_marked`.
+
+See [docs/esp32-cam-attendance.md](./docs/esp32-cam-attendance.md) for the exact payload and setup.
 
 ## Getting Started
 

@@ -4,6 +4,7 @@ import { createServerSupabase } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
 import { revalidatePath } from 'next/cache';
+import { markAttendanceOnce } from '@/lib/attendance-station';
 
 export async function addStudentProfile(formData: FormData) {
   const supabase = await createServerSupabase();
@@ -59,31 +60,19 @@ export async function markStudentAttendance(payload: {
   session_id: string;
   confidence_score: number;
 }) {
-  
-  const adminSupabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-  );
+  try {
+    const result = await markAttendanceOnce({
+      profileId: payload.profile_id,
+      classId: payload.class_id,
+      sessionId: payload.session_id,
+      confidenceScore: payload.confidence_score,
+    });
 
-  // Verify profile still exists before marking — prevents ghost entries for deleted users
-  const { data: profileExists } = await adminSupabase
-    .from('profiles')
-    .select('id')
-    .eq('id', payload.profile_id)
-    .maybeSingle();
-
-  if (!profileExists) {
-    console.warn(`Skipped attendance: profile ${payload.profile_id} no longer exists (deleted).`);
+    return result.status === 'marked';
+  } catch (error) {
+    console.error('Failed to mark attendance:', error);
     return false;
   }
-
-  const { error } = await adminSupabase.from('attendance_logs').insert({
-    ...payload,
-    status: 'present'
-  });
-
-  if (error) console.error("Failed to mark attendance (RLS Bypassed):", error);
-  return !error;
 }
 
 export async function getFaceEmbeddings() {
